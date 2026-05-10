@@ -1,98 +1,171 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FontAwesome } from "@expo/vector-icons";
+// import { Button } from "@react-navigation/elements";
+import React, { useState } from "react";
+import { FlatList, Pressable, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+const socialData = [
+  {
+    id: "1",
+    icon: "facebook",
+  },
+  {
+    id: "2",
+    icon: "google",
+  },
+  {
+    id: "3",
+    icon: "instagram",
+  },
+] as const;
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+const SignInScreen = () => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        padding: 12,
+        justifyContent: "space-evenly",
+      }}
+    >
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 12,
+          marginTop: 2,
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+          // backgroundColor: "red",
+        }}
+      >
+        <FontAwesome
+          style={{
+            marginBottom: 12,
+          }}
+          name="plus"
+          color="#12ef43"
+          size={48}
+        />
+        <Text
+          style={{
+            fontSize: 32,
+            fontWeight: "bold",
+          }}
+        >
+          Sign In
+        </Text>
+        <Text
+          style={{
+            color: "#777",
+            margin: 8,
+          }}
+        >
+          Let's experience of the joy of telecare AI
+        </Text>
+      </View>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+      <View
+        style={{
+          padding: 12,
+        }}
+      >
+        <Text style={{ fontWeight: "bold" }}>Email Address</Text>
+        <TextInput
+          style={{
+            marginVertical: 16,
+            padding: 12,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: "#777",
+          }}
+          placeholder="elementary221b@gmail.com"
+          placeholderTextColor="#777"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <Text style={{ fontWeight: "bold" }}>Password</Text>
+        <TextInput
+          style={{
+            margin: 4,
+            padding: 12,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: "#777",
+          }}
+          placeholder="Enter your password"
+          placeholderTextColor="#777"
+          value={pass}
+          onChangeText={setPass}
+        />
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+        <Pressable
+          style={{
+            borderRadius: 20,
+            backgroundColor: "#67e639ff",
+            borderColor: "#059015ff",
+            marginVertical: 24,
+            padding: 16,
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", marginRight: 8 }}>Sign In</Text>
+          <FontAwesome name="arrow-right" size={20} color="#fff" />
+        </Pressable>
+      </View>
+
+      <View>
+        <View>
+          <FlatList
+            data={socialData}
+            renderItem={({ item }) => (
+              <View
+                style={{
+                  borderWidth: 0.5,
+                  borderColor: "#777",
+                  borderRadius: 20,
+                  padding: 20,
+                  margin: 8,
+                  minWidth: 56,
+                  // backgroundColor: "#ccc",
+                }}
+              >
+                <FontAwesome name={item.icon} size={24} />
+              </View>
+            )}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={{
+              flexDirection: "row",
+              padding: 12,
+              justifyContent: "center",
+              margin: 20,
+            }}
           />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+        </View>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            margin: 12,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+            }}
+          >
+            <Text>Don't have an account?</Text>
+            <Text style={{ color: "#12ef43" }}>Sign up</Text>
+          </View>
+          <Text style={{ color: "#12ef43" }}>Forgot your password</Text>
+        </View>
+      </View>
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
+export default SignInScreen;
