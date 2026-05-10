@@ -1,56 +1,113 @@
-# Welcome to your Expo app 👋
+# AI Telecare Sign In UI – React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple mobile authentication UI built using **React Native + Expo** as part of my mobile development learning journey.
 
-## Get started
+This project is inspired by a Dribbble telemedicine/authentication screen and focuses on:
 
-1. Install dependencies
+* React Native fundamentals
+* Layout building with Flexbox
+* Component structuring
+* FlatList usage
+* Form inputs
+* Icons and UI styling
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+# Preview
 
-   ```bash
-   npx expo start
-   ```
+## Screenshot
 
-In the output, you'll find options to open the app in a
+<!-- Add screenshot below -->
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+![App Screenshot](./assets/appScreenShot.jpeg)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+# Features
 
-When you're ready, run:
+* Sign In screen UI
+* Reusable layout structure
+* Email & Password inputs
+* Social login icons
+* SafeAreaView support
+* FlatList rendering
+* Responsive Flexbox layout
+
+---
+
+# Tech Stack
+
+* React Native
+* Expo
+* JavaScript
+* React Hooks
+* React Native Safe Area Context
+* Expo Vector Icons
+
+---
+
+# Learning Goals
+
+This project was built to practice:
+
+* React Native basics
+* Mobile UI structuring
+* State handling with `useState`
+* Props and reusable components
+* Styling in React Native
+* Understanding mobile layouts
+
+---
+
+# Installation
+
+Clone the repository:
 
 ```bash
-npm run reset-project
+git clone <your-repo-link>
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Move into the project folder:
 
-### Other setup steps
+```bash
+cd <project-folder>
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Install dependencies:
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Start the Expo development server:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx expo start
+```
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+# Future Improvements
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* Better UI polish
+* Hover/press animations
+* Form validation
+* Reusable input components
+* Improved responsiveness
+* Dark mode support
+* Navigation flow
+
+---
+
+# Project Status
+
+Currently under active development and learning.
+
+More commits and improvements coming soon.
+
+---
+
+# Acknowledgements
+
+UI Inspiration:
+https://dribbble.com/shots/24783022-osler-AI-Telehealth-Telemedicine-App-Sign-In-Sign-Up-UI
